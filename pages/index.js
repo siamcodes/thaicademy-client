@@ -7,22 +7,21 @@ const Index = ({ courses, router }) => {
   const head = () => (
     <Head>
       <title>
-        Courses on JavaScript React Next.js Node MongoDB GraphQL SEO MERN |{" "}
+        Courses online |{" "}
         {process.env.APP_NAME}
       </title>
       <meta
         name="description"
-        content="Courses on Modern JavaScript React Next.js Node MongoDB GraphQL SEO MERN Full Stack Web Development Courses Free and Paid"
+        content="Courses online Free and Paid"
       />
       <link rel="canonical" href={`${process.env.DOMAIN}${router.pathname}`} />
       <meta
         property="og:title"
-        content={`Courses on JavaScript React Next.js Node MongoDB GraphQL SEO MERN | ${process.env.APP_NAME}`}
+        content={`Courses online | ${process.env.APP_NAME}`}
       />
       <meta
         property="og:description"
-        content={`Courses on JavaScript React Next.js Node MongoDB GraphQL SEO MERN Full Stack Web
-        Development Courses | Free and Paid | ${process.env.APP_NAME}`}
+        content={`Courses online | Free and Paid | ${process.env.APP_NAME}`}
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${process.env.DOMAIN}/default.jpg`} />
@@ -41,11 +40,10 @@ const Index = ({ courses, router }) => {
     <>
       {head()}
       <div className="jumbotron text-center bg-primary square p-5">
-        <h1 style={{color: "#FFF"}}>Become A FullStack Web Developer</h1>
+        <h1 style={{color: "#FFF"}}>Welcome to Thaicademy.com</h1>
         <hr style={{ borderBottom: "2px solid silver", width: "100px" }} />
         <p className="lead">
-          Master JavaScript React Node MongoDB MERN Stack & Start Building Real
-          Projects
+          ระบบจัดการเรียนรู้ เรียนได้ทุกที่ทุกเวลาด้วยหลักสูตรที่ทันสมัย กับอาจารย์มืออาชีพ 
         </p>
       </div>
       <div className="container-fluid">

@@ -41,9 +41,9 @@ const BecomeInstructor = () => {
             <div className="pt-4">
               <UserSwitchOutlined className="display-1 pb-3" />
               <br />
-              <h2>Setup payout to publish courses on Code Continue</h2>
+              <h2>Setup payout to publish courses on Thaicademy.com</h2>
               <p className="lead text-warning">
-                Code Continue partners with{" "}
+                Thaicademy partners with{" "}
                 <a href="https://stripe.com/" target="_blank">
                   Stripe
                 </a>{" "}

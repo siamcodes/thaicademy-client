@@ -7,22 +7,21 @@ const Articles = ({ posts, router }) => {
   const head = () => (
     <Head>
       <title>
-        Articles on JavaScript React Next.js Node MongoDB GraphQL SEO MERN |{" "}
+        Articles |{" "}
         {process.env.APP_NAME}
       </title>
       <meta
         name="description"
-        content="Articles on Modern JavaScript React Next.js Node MongoDB GraphQL SEO MERN Full Stack Web Development Courses Free and Paid"
+        content="Articles  Free and Paid"
       />
       <link rel="canonical" href={`${process.env.DOMAIN}${router.pathname}`} />
       <meta
         property="og:title"
-        content={`Articles on JavaScript React Next.js Node MongoDB GraphQL SEO MERN | ${process.env.APP_NAME}`}
+        content={`Articles  | ${process.env.APP_NAME}`}
       />
       <meta
         property="og:description"
-        content={`Articles on JavaScript React Next.js Node MongoDB GraphQL SEO MERN Full Stack Web
-            Development Courses | Free and Paid | ${process.env.APP_NAME}`}
+        content={`Articles | Free and Paid | ${process.env.APP_NAME}`}
       />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={`${process.env.DOMAIN}/default.jpg`} />

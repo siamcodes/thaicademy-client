@@ -84,7 +84,7 @@ const TopNav = () => {
             <a className="typewriter">
               <div className="pt-1">
                 <img
-                  src="/images/logo/codecontinue.png"
+                  src="/images/logo/logo.png"
                   alt="code continue logo"
                   height="40"
                   className="mb-1"
