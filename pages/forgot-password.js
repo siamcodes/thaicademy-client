@@ -69,14 +69,14 @@ const ForgotPassword = () => {
 
   return (
     <>
-      <h1 className="jumbotron text-center bg-primary square">
+      <h1 className="jumbotron text-center bg-primary square p-5">
         Password Reset
       </h1>
       <div className="container col-md-4 offset-md-4 pb-5">
         <form onSubmit={success ? handleResetPassword : handleSubmit}>
           <input
             type="email"
-            className="form-control mb-4 p-4"
+            className="form-control mb-4 p-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Enter email"
@@ -86,7 +86,7 @@ const ForgotPassword = () => {
             <>
               <input
                 type="text"
-                className="form-control mb-4 p-4"
+                className="form-control mb-4 p-3"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="Enter secret code"
@@ -95,7 +95,7 @@ const ForgotPassword = () => {
 
               <input
                 type="password"
-                className="form-control mb-4 p-4"
+                className="form-control mb-4 p-3"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
                 placeholder="Enter new password"
@@ -103,14 +103,15 @@ const ForgotPassword = () => {
               />
             </>
           )}
-
-          <button
-            type="submit"
-            className="btn btn-block btn-primary p-2"
-            disabled={!email || loading}
-          >
-            {loading ? <SyncOutlined spin /> : "Submit"}
-          </button>
+          <div className="d-grid">
+            <button
+              type="submit"
+              className="btn btn-primary p-3"
+              disabled={!email || loading}
+            >
+              {loading ? <SyncOutlined spin /> : "Submit"}
+            </button>
+          </div>
         </form>
       </div>
     </>

@@ -33,7 +33,7 @@ const PostCard = ({ post }) => {
                   key={c._id}
                   count={c.name}
                   style={{ backgroundColor: "#03a9f4" }}
-                  className="pb-2"
+                  className="pb-2 mr-2"
                 />{' '}
               </>
             ))}

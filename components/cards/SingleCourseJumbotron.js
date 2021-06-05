@@ -17,7 +17,7 @@ const SingleCourseJumbotron = ({
   enrolled,
   setEnrolled,
 }) => {
-  
+
   const {
     name,
     description,
@@ -47,14 +47,16 @@ const SingleCourseJumbotron = ({
           </p>
 
           {/* categories */}
-           {categories.map((c) => (
+          {categories.map((c) => (
+            <>
               <Badge
                 key={c._id}
                 count={c.name}
                 style={{ backgroundColor: "#03a9f4" }}
                 className="pb-4 mr-2"
-              />
-              ))}  
+              />{' '}
+            </>
+          ))}
 
           {/* author */}
           <p>Created by {instructor.name}</p>
