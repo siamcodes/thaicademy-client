@@ -103,11 +103,12 @@ const TopNav = () => {
         {user && user.role && user.role.includes("Author") ? (
           <></>
         ) : (
-          <Item icon={<FormOutlined />} key="/user/become-author">
+          <></>
+         /*  <Item icon={<FormOutlined />} key="/user/become-author">
             <Link href="/user/become-author">
               <a className="typewriter">Become Author</a>
             </Link>
-          </Item>
+          </Item> */
         )}
 
         {user &&
@@ -117,11 +118,12 @@ const TopNav = () => {
         user.stripe_seller.charges_enabled ? (
           <></>
         ) : (
-          <Item icon={<TeamOutlined />} key="/user/become-instructor">
+          <></>
+          /* <Item icon={<TeamOutlined />} key="/user/become-instructor">
             <Link href="/user/become-instructor">
               <a className="typewriter">Become Instructor</a>
             </Link>
-          </Item>
+          </Item> */
         )}
 
         {user === null && (
