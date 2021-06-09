@@ -23,6 +23,7 @@ const SingleCourse = ({ course }) => {
       <title>
         {course.name} | {process.env.APP_NAME}
       </title>
+      <meta charset="UTF-8" />
       <meta
         name="description"
         content={markdownToTxt(course.description.substring(0, 300))}
@@ -179,7 +180,7 @@ const SingleCourse = ({ course }) => {
 export async function getServerSideProps({ query }) {
   const { data } = await axios.get(
     `${process.env.API}/course/public/${query.slug}`
-  //  `${process.env.API}/course/${query.slug}`
+    // `${process.env.API}/course/${query.slug}`
   );
   return {
     props: {

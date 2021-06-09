@@ -8,7 +8,7 @@ const CourseCard = ({ course }) => {
   // destructure
   const { name, instructor, price, image, slug, paid, categories , category } = course;
   return (
-    <Link href="/course/[slug]" as={`/course/${slug}`}>
+     <Link href="/course/[slug]" as={`/course/${slug}`}> 
       <a>
         <Card
           className="mb-4"
@@ -25,19 +25,19 @@ const CourseCard = ({ course }) => {
           <h2 className="h4 font-weight-bold">{name}</h2>
           <p>by {instructor.name}</p>
 
-        {/* {categories.map((c) => (
+         {categories.map((c) => (
             <Badge
               count={c.name}
               style={{ backgroundColor: "#03a9f4" }}
               className="pb-2 mr-2"
             />
-          ))}  */}
+          ))}  
 
-             <Badge
+             {/* <Badge
               count={category}
               style={{ backgroundColor: "#03a9f4" }}
               className="pb-2 mr-2"
-            />
+            /> */}
 
           <h4 className="pt-2">
             {paid
