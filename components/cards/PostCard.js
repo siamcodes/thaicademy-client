@@ -8,10 +8,11 @@ const PostCard = ({ post }) => {
   const { title, slug, categories, postedBy } = post;
   return (
     <>
-      <Link href="/article/[slug]" as={`/article/${slug}`}>
+      {/* <Link href="/article/[slug]" as={`/article/${slug}`}> */}
+      <Link href={`/article/${slug}`}>
         <a>
           <Card
-            // style={{ height: "320px" }}
+            //  style={{ height: "320px" }}
             className="mb-4"
           //   cover={
           //     <img

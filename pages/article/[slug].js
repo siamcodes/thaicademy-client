@@ -12,6 +12,7 @@ import CoursePromo from "../../components/misc/CoursePromo";
 const SinglePost = ({ post }) => {
   const head = () => (
     <Head>
+      <meta charset="UTF-8" />
       <title>
         {post.title} | {process.env.APP_NAME}
       </title>
@@ -79,8 +80,8 @@ const SinglePost = ({ post }) => {
                 <Tag key={c.name}>
                   {c.name}
                   {/* <Link href="/category/[slug]" as={`/category/${c.slug}`}>
-                <a>{c.name}</a>
-              </Link> */}
+                        <a>{c.name}</a>
+                     </Link> */}
                 </Tag>
               ))}
             <div className="p-4"></div>

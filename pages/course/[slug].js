@@ -20,10 +20,10 @@ const SingleCourse = ({ course }) => {
   // head
   const head = () => (
     <Head>
+      <meta charset="UTF-8" />
       <title>
         {course.name} | {process.env.APP_NAME}
       </title>
-      <meta charset="UTF-8" />
       <meta
         name="description"
         content={markdownToTxt(course.description.substring(0, 300))}
@@ -161,7 +161,7 @@ const SingleCourse = ({ course }) => {
       )}
       <br />
 
-      <div className="container">
+      <div className="container pt-4">
         <div className="row">
           <div className="col">
             <DisqusThread

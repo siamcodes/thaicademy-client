@@ -29,6 +29,7 @@ const SingleCourse = () => {
   const {
     state: { user },
   } = useContext(Context);
+  
   const [loading, setLoading] = useState(false);
   const [course, setCourse] = useState({ lessons: [] });
   // for sidebar
@@ -360,7 +361,7 @@ const SingleCourse = () => {
                   </Avatar>
                 }
               >
-                {lesson.title.substring(0, 30)}
+                {lesson.title.substring(0, 25)}
 
                 {completedLessons.includes(lesson._id) ? (
                   <CheckCircleFilled
@@ -388,8 +389,8 @@ const SingleCourse = () => {
           {clicked !== -1 ? (
             <>
               <div className="col alert alert-primary square">
-                <b>{course.name.substring(0, 30)}</b> /{" "}
-                {course.lessons[clicked].title.substring(0, 30)}
+                <b>{course.name.substring(0, 50)}</b> /{" "}
+                {course.lessons[clicked].title.substring(0, 50)}
                 {/* conditional rendering */}
                 {completedLessons.includes(course.lessons[clicked]._id) ? (
                   <span

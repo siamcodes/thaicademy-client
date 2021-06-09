@@ -6,6 +6,7 @@ import Head from "next/head";
 const Articles = ({ posts, router }) => {
   const head = () => (
     <Head>
+      <meta charset="UTF-8" />
       <title>
         Articles |{" "}
         {process.env.APP_NAME}

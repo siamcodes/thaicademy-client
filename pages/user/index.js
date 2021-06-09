@@ -25,9 +25,7 @@ const UserIndex = () => {
 
   return (
     <UserRoute>
-      <h1 className="jumbotron text-center square p-3 mt-2 left-bottom-radius">
-        Courses
-      </h1>
+      <h1 className="jumbotron text-center square p-3 mt-2 left-bottom-radius"> Courses </h1>
 
       {!courses.length && (
         <Link href="/">
@@ -43,7 +41,7 @@ const UserIndex = () => {
       )}
       {courses &&
         courses.map((course) => (
-          <div className="media pb-1" key={course._id}>
+          <div className="media pt-2 pb-1" key={course._id}>
             <Avatar
               size={80}
               shape="square"
@@ -52,34 +50,21 @@ const UserIndex = () => {
             <div className="media-body pl-2">
               <div className="row">
                 <div className="col">
-                  <Link
-                    href={`/user/course/${course.slug}`}
-                    className="pointer"
-                  >
-                    <a>
-                      <h5 className="mt-2 text-primary">{course.name}</h5>
-                    </a>
+                  <Link href={`/user/course/${course.slug}`} className="pointer"  >
+                    <a> <h5 className="mt-2 text-primary">{course.name}</h5> </a>
                   </Link>
-                  <p style={{ marginTop: "-10px" }}>
-                    {course.lessons.length} Lessons
-                  </p>
-                  <p
-                    className="text-muted"
-                    style={{ marginTop: "-15px", fontSize: "12px" }}
-                  >
+                  <p style={{ marginTop: "-10px" }}> {course.lessons.length} Lessons </p>
+                  <p className="text-muted" style={{ marginTop: "-15px", fontSize: "12px" }}  >
                     By {course.instructor.name}
                   </p>
                 </div>
-                {/* <div className="col-md-3 mt-3 text-center">
-                  <Link
-                    href={`/user/course/${course.slug}`}
-                    className="pointer"
-                  >
-                    <a>
-                      <PlayCircleFilled className="h2 pointer text-primary" />
-                    </a>
+
+                <div className="col-md-3 mt-3 text-center">
+                  <Link href={`/user/course/${course.slug}`} className="pointer">
+                    <a><PlayCircleFilled className="h2 pointer text-primary" /></a>
                   </Link>
-                </div> */}
+                </div>
+                
               </div>
             </div>
           </div>

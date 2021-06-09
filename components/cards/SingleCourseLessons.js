@@ -8,7 +8,7 @@ const SingleCourseLessons = ({
   showModal,
   setShowModal,
 }) => (
-  <div className="container">
+  <div className="container pt-3">
     <div className="row">
       <div className="col lesson-list">
         {lessons && <h4>{lessons.length} Lessons</h4>}

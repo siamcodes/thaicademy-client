@@ -59,9 +59,9 @@ const SingleCourseJumbotron = ({
           ))}
 
           {/* author */}
-          <p>Created by {instructor.name}</p>
-          {/* updated date */}
-          <p>Last updated {new Date(updatedAt).toLocaleDateString()} </p>
+          <p>Created by <span style={{color: 'yellow'}}> {instructor.name} </span>
+          {/* updated date */} {' '}
+             Last updated <span style={{color: 'yellow'}}> {new Date(updatedAt).toLocaleDateString()} </span></p>
           {/* price */}
           <h4 className="text-light">
             {paid
