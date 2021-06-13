@@ -7,7 +7,6 @@ import Head from "next/head";
 import { withRouter } from "next/router";
 import { markdownToTxt } from "markdown-to-txt";
 import axios from "axios";
-import CoursePromo from "../../components/misc/CoursePromo";
 import { Card, Badge } from "antd";
 import Link from "next/link";
 
@@ -108,7 +107,6 @@ const SinglePost = ({ post }) => {
           </div>
 
           <div className="col-md-4">
-            {/* <CoursePromo /> */}
             {articles &&
               articles.map((a) => (
                 <>
