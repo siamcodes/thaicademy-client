@@ -29,7 +29,7 @@ const SingleCourse = () => {
   const {
     state: { user },
   } = useContext(Context);
-  
+
   const [loading, setLoading] = useState(false);
   const [course, setCourse] = useState({ lessons: [] });
   // for sidebar
@@ -321,11 +321,12 @@ const SingleCourse = () => {
     <StudentRoute>
       <div className="row">
         {/* {JSON.stringify(completedLessons)} */}
-        <div style={{ maxWidth: 320 }}>
+
+        <div style={{ maxWidth: 320 }} className="col-sm-3 col-sm-1">
           <Button
             onClick={() => setCollapsed(!collapsed)}
-            className="text-primary mt-1 btn-block mb-2"
-            disabled={onlyWidth < 800}
+            className="text-primary mt-1 mb-2"
+          // disabled={onlyWidth < 800}
           >
             {createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined)}
             {!collapsed && "Lessons"}
@@ -346,10 +347,10 @@ const SingleCourse = () => {
             mode="inline"
             defaultSelectedKeys={[clicked]}
             inlineCollapsed={collapsed}
-            // style={{
-            //   height: "100vh",
-            //   overflow: "scroll",
-            // }}
+          // style={{
+          //   height: "100vh",
+          //   overflow: "scroll",
+          // }}
           >
             {course.lessons.map((lesson, index) => (
               <Item
@@ -379,12 +380,12 @@ const SingleCourse = () => {
           </Menu>
         </div>
         {/* right content area */}
-        <div
-          className="col pt-2"
-          // style={{
-          //   height: "100vh",
-          //   overflow: "scroll",
-          // }}
+        <div className="col pt-2"
+        // style={{
+        //   width: "100%",
+        //   height: "100vh",
+        //   overflow: "scroll",
+        // }}
         >
           {clicked !== -1 ? (
             <>
@@ -419,6 +420,7 @@ const SingleCourse = () => {
                           width="100%"
                           height="100%"
                           controls
+                          onEnded={() => markCompleted()}
                         />
                       </div>
                       <hr />
@@ -452,6 +454,7 @@ const SingleCourse = () => {
                     markQaAsNotResolved={markQaAsNotResolved}
                   />
                 )}
+
                 {/* edit in modal view */}
                 <QaEdit
                   editModalVisible={editModalVisible}
@@ -505,8 +508,6 @@ const SingleCourse = () => {
           )}
         </div>
 
-        <br />
-        <br />
       </div>
     </StudentRoute>
   );

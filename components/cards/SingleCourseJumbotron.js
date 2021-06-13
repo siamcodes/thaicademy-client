@@ -5,6 +5,7 @@ import ReactPlayer from "react-player";
 import { SafetyOutlined, LoadingOutlined, PlayCircleFilled, } from "@ant-design/icons";
 import Link from "next/link";
 import { Context } from "../../context";
+import ReactMarkdown from "react-markdown";
 
 const SingleCourseJumbotron = ({
   course,
@@ -36,15 +37,19 @@ const SingleCourseJumbotron = ({
   } = useContext(Context);
 
   return (
-    <div className="jumbotron bg-primary square p-5">
+    <div className="container-fluid jumbotron bg-primary square p-5">
       <div className="row">
         <div className="col-md-8">
           {/* title */}
           <h1 className="text-light font-weight-bold">{name}</h1>
           {/* description */}
-          <p className="lead">
-            {description && description.substring(0, 160)}..
-          </p>
+          {/* <p className="lead">
+            {description && description.substring(0, 320)}..
+          </p> */}
+          <ReactMarkdown
+           source={description}
+           className="lead text-light  single-post"
+          />
 
           {/* categories */}
           {categories.map((c) => (
@@ -59,9 +64,9 @@ const SingleCourseJumbotron = ({
           ))}
 
           {/* author */}
-          <p>Created by <span style={{color: 'yellow'}}> {instructor.name} </span>
-          {/* updated date */} {' '}
-             Last updated <span style={{color: 'yellow'}}> {new Date(updatedAt).toLocaleDateString()} </span></p>
+          <p> Created by  {instructor.name}  </p>
+          {/* updated date */}
+          <p> Last updated  {new Date(updatedAt).toLocaleDateString()} </p>
           {/* price */}
           <h4 className="text-light">
             {paid

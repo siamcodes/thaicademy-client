@@ -1,8 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { Context } from "../../context";
 
 const AdminNav = () => {
   const [current, setCurrent] = useState("");
+
+  // context
+  const {
+    state: { user },
+    dispatch,
+  } = useContext(Context);
+  // router
+  const router = useRouter();
+
 
   useEffect(() => {
     process.browser && setCurrent(window.location.pathname);
@@ -39,6 +50,27 @@ const AdminNav = () => {
           Posts
         </a>
       </Link>
+
+      {user && user.role && user.role.includes("Author") ? (
+        <></>
+      ) : (
+        <Link href="/user/become-author" key="/user/become-author">
+          <a className={`nav-link ${current === "/user/become-author" && "active"}`}>Become Author</a>
+        </Link>
+      )}
+
+      {user &&
+        user.role &&
+        user.stripe_seller &&
+        user.role.includes("Instructor") &&
+        user.stripe_seller.charges_enabled ? (
+        <></>
+      ) : (
+        <Link href="/user/become-instructor" key="/user/become-instructor">
+          <a className={`nav-link ${current === "/user/become-instructor" && "active"}`}>Become Instructor</a>
+        </Link>
+      )}
+
     </div>
   );
 };

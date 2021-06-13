@@ -41,13 +41,13 @@ const UserIndex = () => {
       )}
       {courses &&
         courses.map((course) => (
-          <div className="media pt-2 pb-1" key={course._id}>
+          <div className="d-flex pt-2 pb-1" key={course._id}>
             <Avatar
               size={80}
               shape="square"
               src={course.image ? course.image.Location : "/course.png"}
+              className="me-3"
             />
-            <div className="media-body pl-2">
               <div className="row">
                 <div className="col">
                   <Link href={`/user/course/${course.slug}`} className="pointer"  >
@@ -59,14 +59,14 @@ const UserIndex = () => {
                   </p>
                 </div>
 
-                <div className="col-md-3 mt-3 text-center">
+                <div className="col-sm-2 mt-3 text-center">
                   <Link href={`/user/course/${course.slug}`} className="pointer">
                     <a><PlayCircleFilled className="h2 pointer text-primary" /></a>
                   </Link>
                 </div>
                 
               </div>
-            </div>
+       
           </div>
         ))}
     </UserRoute>
