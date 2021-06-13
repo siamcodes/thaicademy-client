@@ -48,6 +48,7 @@ const UserIndex = () => {
               src={course.image ? course.image.Location : "/course.png"}
               className="me-3"
             />
+            <div className=" pl-2"></div>
               <div className="row">
                 <div className="col">
                   <Link href={`/user/course/${course.slug}`} className="pointer"  >
@@ -59,7 +60,7 @@ const UserIndex = () => {
                   </p>
                 </div>
 
-                <div className="col-sm-2 mt-3 text-center">
+                <div className="col-md-3 mt-3 text-center">
                   <Link href={`/user/course/${course.slug}`} className="pointer">
                     <a><PlayCircleFilled className="h2 pointer text-primary" /></a>
                   </Link>

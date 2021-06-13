@@ -5,7 +5,8 @@ const { Meta } = Card;
 
 const PostCard = ({ post }) => {
   // destructure
-  const { title, slug, categories, postedBy } = post;
+  const { title, slug, categories, postedBy, updatedAt } = post;
+  
   return (
     <>
        <Link href="/article/[slug]" as={`/article/${slug}`}> 
@@ -25,7 +26,7 @@ const PostCard = ({ post }) => {
             <h2 className="h4 font-weight-bold">
               {title && title.substring(0, 160)}
             </h2>
-            <p>by {postedBy.name}</p>
+            <p>by {postedBy.name} | {new Date(updatedAt).toLocaleDateString()}</p>
 
             {categories.map((c) => (
               <>

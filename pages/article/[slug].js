@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import { Tag } from "antd";
 import DisqusThread from "../../components/DisqusThread";
@@ -8,8 +8,23 @@ import { withRouter } from "next/router";
 import { markdownToTxt } from "markdown-to-txt";
 import axios from "axios";
 import CoursePromo from "../../components/misc/CoursePromo";
+import { Card, Badge } from "antd";
+import Link from "next/link";
 
 const SinglePost = ({ post }) => {
+
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    loadArticles();
+  }, []);
+
+  const loadArticles = async () => {
+    const { data } = await axios.get(`/api/posts`);
+    console.log(data);
+    setArticles(data);
+  };
+
   const head = () => (
     <Head>
       <meta charset="UTF-8" />
@@ -59,7 +74,7 @@ const SinglePost = ({ post }) => {
             <h1>{post.title}</h1>
             <p>
               <small className="text-muted">
-                {post.postedBy ? post.postedBy.name : ""}{" "}
+               By {post.postedBy ? post.postedBy.name : ""}{' '} | {' '}
                 {new Date(post.updatedAt).toLocaleDateString()}
               </small>
             </p>
@@ -94,6 +109,31 @@ const SinglePost = ({ post }) => {
 
           <div className="col-md-4">
             {/* <CoursePromo /> */}
+            {articles &&
+              articles.map((a) => (
+                <>
+                  <Link href="/article/[a.slug]" as={`/article/${a.slug}`}>
+                    <a>
+                      <Card>
+                        <h2 className="h4 font-weight-bold">
+                          {a.title && a.title.substring(0, 160)}
+                        </h2>
+                        <p>by {a.postedBy.name} | {new Date(a.updatedAt).toLocaleDateString()}</p>
+                        {a.categories.map((c) => (
+                          <>
+                            <Badge
+                              key={c._id}
+                              count={c.name}
+                              style={{ backgroundColor: "#03a9f4" }}
+                              className="pb-2 mr-2"
+                            />{' '}
+                          </>
+                        ))}
+                      </Card>
+                    </a>
+                  </Link>
+                </>
+              ))}
           </div>
         </div>
         {/* col 4 for promo */}
@@ -104,13 +144,14 @@ const SinglePost = ({ post }) => {
           id={post._id}
           title={post.title}
           path={`/article/${post.slug}`}
-        /> 
+        />
       </div>
     </>
   );
 };
 
 export async function getServerSideProps(ctx) {
+
   const { data } = await axios.get(
     `${process.env.API}/post/${ctx.params.slug}`
   );
