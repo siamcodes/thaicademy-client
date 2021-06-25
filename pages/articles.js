@@ -47,7 +47,7 @@ const Articles = ({ posts, router }) => {
       <div className="container-fluid">
         <div className="row pt-2">
           {posts.map((post) => (
-            <div key={post._id} className="col-md-4">
+            <div key={post._id} className="col-md-3">
               <PostCard post={post} />
               {/* <pre>{JSON.stringify(post, null, 4)}</pre> */}
             </div>
