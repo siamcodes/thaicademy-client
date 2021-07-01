@@ -6,22 +6,22 @@ const { Meta } = Card;
 const PostCard = ({ post }) => {
   // destructure
   const { title, slug, categories, postedBy, updatedAt } = post;
-  
+
   return (
     <>
-       <Link href="/article/[slug]" as={`/article/${slug}`}> 
+      <Link href="/article/[slug]" as={`/article/${slug}`}>
         <a>
           <Card
-            //  style={{ height: "320px" }}
+            // style={{ height: "320px" }}
             className="mb-4"
-          //   cover={
-          //     <img
-          //       src={}
-          //       alt={title}
-          //       style={{ height: "200px", objectFit: "cover" }}
-          //       className="p-1"
-          //     />
-          //   }
+            cover={
+              <img
+                src={post.image ? post.image.Location : "/default.jpg"}
+                alt={title}
+                style={{ objectFit: "cover" }}
+                className="p-1"
+              />
+            }
           >
             <h2 className="h4 font-weight-bold">
               {title && title.substring(0, 160)}
