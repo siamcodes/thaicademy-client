@@ -40,12 +40,7 @@ const Index = ({ courses, router }) => {
   return (
     <>
       {head()}
-      <div className="jumbotron text-center bg-primary square p-5">
-        <h1 style={{ color: "#FFF" }}>Welcome to Thaicademy.com</h1>
-        <hr style={{ borderBottom: "2px solid silver", width: "100px" }} />
-        <p className="lead">
-          ระบบจัดการเรียนรู้ เรียนได้ทุกที่ทุกเวลาด้วยหลักสูตรที่ทันสมัย กับอาจารย์มืออาชีพ
-        </p>
+      <div className="jumbotron text-center bg-primary square p-5">    
       </div>
       <div className="container-fluid">
         <div className="row pt-2">
