@@ -57,7 +57,6 @@ const SingleCourse = ({ course }) => {
       />
       <meta property="og:image:type" content="image/jpg" />
       <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FB_APP_ID} />
-      <script data-ad-client="ca-pub-3283607139562325" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </Head>
   );
 

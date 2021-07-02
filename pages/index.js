@@ -33,7 +33,7 @@ const Index = ({ courses, router }) => {
       />
       <meta property="og:image:type" content="image/jpg" />
       <meta property="fb:app_id" content={process.env.NEXT_PUBLIC_FB_APP_ID} />
-      <script data-ad-client="ca-pub-3283607139562325" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
     </Head>
   );
 
@@ -41,10 +41,10 @@ const Index = ({ courses, router }) => {
     <>
       {head()}
       <div className="jumbotron text-center bg-primary square p-5">
-        <h1 style={{color: "#FFF"}}>Welcome to Thaicademy.com</h1>
+        <h1 style={{ color: "#FFF" }}>Welcome to Thaicademy.com</h1>
         <hr style={{ borderBottom: "2px solid silver", width: "100px" }} />
         <p className="lead">
-          ระบบจัดการเรียนรู้ เรียนได้ทุกที่ทุกเวลาด้วยหลักสูตรที่ทันสมัย กับอาจารย์มืออาชีพ 
+          ระบบจัดการเรียนรู้ เรียนได้ทุกที่ทุกเวลาด้วยหลักสูตรที่ทันสมัย กับอาจารย์มืออาชีพ
         </p>
       </div>
       <div className="container-fluid">

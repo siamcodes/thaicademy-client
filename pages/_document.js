@@ -20,6 +20,7 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+        <script data-ad-client="ca-pub-3283607139562325" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           {/* icon */}
           <link
             rel="apple-touch-icon"
