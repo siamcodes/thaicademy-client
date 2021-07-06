@@ -45,7 +45,7 @@ const Index = ({ courses, router }) => {
           ระบบจัดการเรียนรู้ เรียนได้ทุกที่ทุกเวลาด้วยหลักสูตรที่ทันสมัย กับอาจารย์มืออาชีพ
         </h1>
       </div>
-      <div className="container-fluid">
+      <div className="container">
         <div className="row pt-2">
           {courses.map((course) => (
             <div key={course._id} className="col-md-4">

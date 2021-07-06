@@ -1,7 +1,7 @@
-body {   
-  font-family: 'serif', 'sans-serif', 'monospace' ; 
+body {
+  font-family: 'serif', 'sans-serif', 'monospace' ;
   font-size: 1.2em;
-} 
+}
 
 .square {
   border-radius: 0px;
@@ -36,7 +36,7 @@ body {
   border-radius: 0px 0px 10px 10px;
 }
 
-/* override bootstrap input textarea style 
+/* override bootstrap input textarea style
 input,
 textarea,
 .list-group-item {
@@ -63,6 +63,14 @@ blockquote {
 blockquote:before {
   color: #ccc;
   content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote:after {
+  color: #ccc;
+  content: close-quote;
   font-size: 4em;
   line-height: 0.1em;
   margin-right: 0.25em;

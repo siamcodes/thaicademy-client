@@ -24,10 +24,10 @@ const PostEdit = () => {
   //-----
   const [values, setValues] = useState({ 
     _id: "",
-    image: {},
+    imageTitle: {},
     loading: false, 
   });
-  const [image, setImage] = useState({});
+  const [imageTitle, setImageTitle] = useState({});
   const [preview, setPreview] = useState("");
   const [uploadButtonText, setUploadButtonText] = useState("Upload image");
   //------
@@ -54,6 +54,7 @@ const PostEdit = () => {
       setTitle(data.title);
       setBody(data.body);
       setPostId(data._id);
+      setImageTitle(data.imageTitle); //
       // push category names
       let arr = [];
       data.categories.map((c) => arr.push(c.name));
@@ -123,7 +124,7 @@ const PostEdit = () => {
         title,
         body,
         categories,
-        image  //
+        imageTitle  //
       });
       toast("Post updated");
       router.push("/author");
@@ -136,12 +137,12 @@ const PostEdit = () => {
 
   const handleImageTitle = async (e) => {
     // remove previous image
-    if (values.image && values.image.Location) {
-      // console.log("YES VALUES IMAGE", values.image);
+    if (values.imageTitle && values.imageTitle.Location) {
+       console.log("YES VALUES IMAGE", values.imageTitle);
       let { data } = await axios.post(
         `/api/post/remove-image-title/${values._id}`,
         {
-          image: values.image,
+          imageTitle: values.imageTitle,
         }
       );
       // console.log("removed previous image", data);
@@ -164,15 +165,15 @@ const PostEdit = () => {
         // post to s3
         try {
           let { data } = await axios.post("/api/post/upload-image-title", {
-            image: uri,
+            imageTitle: uri,
           });
           // console.log("image uploaded", data);
-          setValues({ ...values, image: data, loading: false });
-          setUploadButtonText("Upload image");
+          setValues({ ...values, imageTitle: data, loading: false });
+          setUploadButtonText("Upload image title");
         } catch (err) {
           setValues({ ...values, loading: false });
-          setUploadButtonText("Upload image");
-          toast("Image upload failed. Try again.");
+          setUploadButtonText("Upload image title");
+          toast("Image title upload failed. Try again.");
           console.log(err);
         }
       },
@@ -182,12 +183,12 @@ const PostEdit = () => {
 
   const handleImageRemove = async () => {
     try {
-      console.log("remove image from s3 ===> ", image.Key);
+      console.log("remove image from s3 ===> ", imageTitle.Key);
       setValues({ ...values, loading: true });
-      let { data } = await axios.post("/api/post/remove-image-title", { image });
+      let { data } = await axios.post("/api/post/remove-image-title", { imageTitle });
       // console.log("Remove image ===> ", data);
       if (data.ok) {
-        setImage({});
+        setImageTitle({});
         setPreview("");
         setUploadButtonText("Upload image");
         setValues({ ...values, loading: false });
@@ -237,7 +238,7 @@ const PostEdit = () => {
                   style={{ cursor: "pointer" }}
                 >
                   <Avatar
-                    src={values.image && values.image.Location}
+                    src={values.imageTitle && values.imageTitle.Location}
                     size={60}
                     shape="square"
                     className="ml-3"
