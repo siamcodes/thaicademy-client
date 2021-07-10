@@ -23,7 +23,7 @@ const PostCard = ({ post }) => {
               />
             }
           >
-            <h2 className="h4 font-weight-bold">
+            <h2 className="h4 font-weight-bold text-shadow">
               {title && title.substring(0, 160)}
             </h2>
             <p>by {postedBy.name} | {new Date(updatedAt).toLocaleDateString()}</p>

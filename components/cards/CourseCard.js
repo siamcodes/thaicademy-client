@@ -22,7 +22,7 @@ const CourseCard = ({ course }) => {
             />
           }
         >
-          <h2 className="h4 font-weight-bold">{name}</h2>
+          <h2 className="h4 font-weight-bold text-shadow">{name}</h2>
           <p>by {instructor.name} | {new Date(updatedAt).toLocaleDateString()}</p>
 
          {categories.map((c) => (

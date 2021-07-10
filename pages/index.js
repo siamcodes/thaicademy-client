@@ -41,7 +41,7 @@ const Index = ({ courses, router }) => {
     <>
       {head()}
       <div className="jumbotron text-center bg-primary square p-5">
-        <h1 style={{ color: "#FFF" }}>
+        <h1 style={{ color: "#FFF", paddingTop: '1px' }}>
           ระบบจัดการเรียนรู้ เรียนได้ทุกที่ทุกเวลาด้วยหลักสูตรที่ทันสมัย กับอาจารย์มืออาชีพ
         </h1>
       </div>

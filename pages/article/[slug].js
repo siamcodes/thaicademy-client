@@ -11,6 +11,8 @@ import { Card, Badge } from "antd";
 import Link from "next/link";
 
 const SinglePost = ({ post }) => {
+  // destructure
+  const { title, slug, categories, postedBy, updatedAt } = post;
 
   const [articles, setArticles] = useState([]);
 
@@ -67,14 +69,14 @@ const SinglePost = ({ post }) => {
   return (
     <>
       {head()}
-      <div className="container-fluid">
+      <div className="container">
         {/* full width row for heading */}
         <div className="row">
           <div className="col pt-3">
-            <h1>{post.title}</h1>
+            <h1 className="text-shadow">{post.title}</h1>
             <p>
               <small className="text-muted">
-               By {post.postedBy ? post.postedBy.name : ""}{' '} | {' '}
+                By {post.postedBy ? post.postedBy.name : ""}{' '} | {' '}
                 {new Date(post.updatedAt).toLocaleDateString()}
               </small>
             </p>
@@ -108,31 +110,39 @@ const SinglePost = ({ post }) => {
           </div>
 
           <div className="col-md-4">
-            {articles &&
-              articles.map((a) => (
-                <>
-                  <Link href="/article/[a.slug]" as={`/article/${a.slug}`}>
-                    <a>
-                      <Card>
-                        <h2 className="h4 font-weight-bold">
-                          {a.title && a.title.substring(0, 160)}
-                        </h2>
-                        <p>by {a.postedBy.name} | {new Date(a.updatedAt).toLocaleDateString()}</p>
-                        {a.categories.map((c) => (
-                          <>
-                            <Badge
-                              key={c._id}
-                              count={c.name}
-                              style={{ backgroundColor: "#03a9f4" }}
-                              className="pb-2 mr-2"
-                            />{' '}
-                          </>
-                        ))}
-                      </Card>
-                    </a>
-                  </Link>
-                </>
-              ))}
+            <div class="row row-cols-1 row-cols-md-2 g-2">
+              {articles &&
+                articles.map((a) => (
+                  <>
+                    <Link href="/article/[a.slug]" as={`/article/${a.slug}`}>
+                      <a>
+                        <Card>
+                          <img
+                            src={a.image ? a.image.Location : "/default.jpg"}
+                            alt={title}
+                            style={{ objectFit: "cover" }}
+                            className="img img-fluid"
+                          />
+                          <h2 className="h4 font-weight-bold">
+                            {a.title && a.title.substring(0, 160)}
+                          </h2>
+                          <p>by {a.postedBy.name} | {new Date(a.updatedAt).toLocaleDateString()}</p>
+                          {a.categories.map((c) => (
+                            <>
+                              <Badge
+                                key={c._id}
+                                count={c.name}
+                                style={{ backgroundColor: "#03a9f4" }}
+                                className="pb-2 mr-2"
+                              />{' '}
+                            </>
+                          ))}
+                        </Card>
+                      </a>
+                    </Link>
+                  </>
+                ))}
+            </div>
           </div>
         </div>
         {/* col 4 for promo */}
