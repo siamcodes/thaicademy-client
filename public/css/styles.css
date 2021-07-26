@@ -1,5 +1,7 @@
+@import 'https://fonts.googleapis.com/css?family=Kanit|Prompt';
+
 body {
-  font-family: 'serif', 'sans-serif', 'monospace' ;
+  font-family: 'Kanit','serif', 'sans-serif', 'monospace' ;
   font-size: 1.1em;
 }
 

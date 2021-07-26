@@ -78,7 +78,7 @@ const TopNav = () => {
         onClick={(e) => setCurrent(e.key)}
         selectedKeys={[current]}
         mode="horizontal"
-        style={{ fontSize: '18px', fontFamily: 'cursive' }}
+        style={{ fontSize: '20px', fontFamily: 'Kanit' }}
       >
         <Item key="/">
           <Link href="/">
