@@ -78,7 +78,7 @@ const TopNav = () => {
         onClick={(e) => setCurrent(e.key)}
         selectedKeys={[current]}
         mode="horizontal"
-        style={{fontSize:'18px', fontFamily:'cursive'}}
+        style={{ fontSize: '18px', fontFamily: 'cursive' }}
       >
         <Item key="/">
           <Link href="/">
@@ -105,18 +105,18 @@ const TopNav = () => {
           <></>
         ) : (
           <></>
-         /*  <Item icon={<FormOutlined />} key="/user/become-author">
-            <Link href="/user/become-author">
-              <a className="typewriter">Become Author</a>
-            </Link>
-          </Item> */
+          /*  <Item icon={<FormOutlined />} key="/user/become-author">
+             <Link href="/user/become-author">
+               <a className="typewriter">Become Author</a>
+             </Link>
+           </Item> */
         )}
 
         {user &&
-        user.role &&
-        user.stripe_seller &&
-        user.role.includes("Instructor") &&
-        user.stripe_seller.charges_enabled ? (
+          user.role &&
+          user.stripe_seller &&
+          user.role.includes("Instructor") &&
+          user.stripe_seller.charges_enabled ? (
           <></>
         ) : (
           <></>

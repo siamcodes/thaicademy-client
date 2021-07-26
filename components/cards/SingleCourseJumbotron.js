@@ -37,18 +37,18 @@ const SingleCourseJumbotron = ({
   } = useContext(Context);
 
   return (
-    <div className="container-fluid jumbotron bg-primary square p-5">
+    <div className="container-fluid jumbotron bg-primary square p-3">
       <div className="row">
         <div className="col-md-8">
           {/* title */}
-          <h1 className="text-light font-weight-bold">{name}</h1>
+          <h1 className="text-light fw-bold fs-1">{name}</h1>
           {/* description */}
           {/* <p className="lead">
             {description && description.substring(0, 320)}..
           </p> */}
           <ReactMarkdown
-           source={description}
-           className="lead text-light  single-post"
+            source={description}
+            className="lead text-light  single-post"
           />
 
           {/* categories */}
@@ -62,20 +62,25 @@ const SingleCourseJumbotron = ({
               />{' '}
             </>
           ))}
-
-          {/* author */}
-          <p> Created by  {instructor.name}  </p>
-          {/* updated date */}
-          <p> Last updated  {new Date(updatedAt).toLocaleDateString()} </p>
-          {/* price */}
-          <h4 className="text-light">
-            {paid
-              ? currencyFormatter({
-                amount: price,
-                currency: "usd",
-              })
-              : "Free"}
-          </h4>
+          <div className="d-flex">
+            {/* author */}
+            <p className="me-auto"> Created by {instructor.name} <br />
+              {/* updated date */}
+              Last updated {new Date(updatedAt).toLocaleDateString()} </p>
+            {/* price */}
+            <div className="ms-auto col-md-3">
+              <div className="d-grid">
+              <h4 className="btn btn-lg btn-outline-light">
+                {paid
+                  ? currencyFormatter({
+                    amount: price,
+                    currency: "usd",
+                  })
+                  : "Free"}
+              </h4>
+              </div>
+            </div>
+          </div>
         </div>
         {/* video preview */}
         {/* {JSON.stringify(image.Location)} */}

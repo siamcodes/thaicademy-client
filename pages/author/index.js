@@ -68,61 +68,56 @@ const AuthorIndex = () => {
       <h1 className="jumbotron text-center square p-3 mt-2 left-bottom-radius">
         Posts
       </h1>
-
-      {posts &&
-        posts.map((post, index) => (
-          <div className="media" key={post._id}>
-            <div className="media-body">
-              <div className="row">
-                <div className="col">
-                  <Link href={`/author/post/${post.slug}`} className="pointer">
-                    <a>
-                      <h5 className="mt-2 text-primary">
-                        <Avatar>{index + 1}</Avatar> {post.title}
-                      </h5>
-                    </a>
-                  </Link>
-                </div>
-
-                {/* published? */}
-                <div className="col-md-2">
-                  {post.published ? (
-                    <>
-                      <Tooltip title="Unpublish">
-                        <CloseCircleOutlined
-                          onClick={() => handleUnpublish(post)}
-                          className="h5 text-warning"
-                        />
-                      </Tooltip>
-                      <Tooltip title="Delete">
-                        <DeleteOutlined
-                          onClick={() => handleDelete(post)}
-                          className="h5 text-danger pointer"
-                        />
-                      </Tooltip>
-                    </>
-                  ) : (
-                    <>
-                      <Tooltip title="Publish">
-                        <CheckCircleOutlined
-                          onClick={() => handlePublish(post)}
-                          className="h5 text-success"
-                        />
-                      </Tooltip>
-                      <Tooltip title="Delete">
-                        <DeleteOutlined
-                          onClick={() => handleDelete(post)}
-                          className="h5 text-danger pointer"
-                        />
-                      </Tooltip>
-                    </>
-                  )}
-                </div>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        {posts &&
+          posts.map((post, index) => (
+            <div className="d-flex" key={post._id}>
+              <div className="me-auto">
+                <Link href={`/author/post/${post.slug}`} className="pointer">
+                  <a>
+                    <h5 className="mt-2 text-primary">
+                      <Avatar>{index + 1}</Avatar> {post.title}
+                    </h5>
+                  </a>
+                </Link>
+              </div>
+              {/* published? */}
+              <div className="ms-auto">
+                {post.published ? (
+                  <>
+                    <Tooltip title="Unpublish">
+                      <CloseCircleOutlined
+                        onClick={() => handleUnpublish(post)}
+                        className="h5 text-warning"
+                      />
+                    </Tooltip>
+                    <Tooltip title="Delete">
+                      <DeleteOutlined
+                        onClick={() => handleDelete(post)}
+                        className="h5 text-danger pointer"
+                      />
+                    </Tooltip>
+                  </>
+                ) : (
+                  <>
+                    <Tooltip title="Publish">
+                      <CheckCircleOutlined
+                        onClick={() => handlePublish(post)}
+                        className="h5 text-success"
+                      />
+                    </Tooltip>
+                    <Tooltip title="Delete">
+                      <DeleteOutlined
+                        onClick={() => handleDelete(post)}
+                        className="h5 text-danger pointer"
+                      />
+                    </Tooltip>
+                  </>
+                )}
               </div>
             </div>
-          </div>
-        ))}
-      <br />
+          ))}
+      </div>
     </AuthorRoute>
   );
 };

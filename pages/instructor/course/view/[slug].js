@@ -157,66 +157,66 @@ const CourseView = () => {
 
       {course && (
         <>
-          <div className="media">
-            <Avatar
-              size={80}
-              src={course.image ? course.image.Location : "/course.png"}
-            />
-            <div className="media-body">
-              <div className="row">
-                <div className="col">
-                  <h5 className="mt-2 text-primary">{course.name}</h5>
-                  <p style={{ marginTop: "-10px" }}>
-                    {course.lessons && course.lessons.length} Lessons
-                  </p>
-                  <p style={{ marginTop: "-15px", fontSize: "10px" }}>
-                    {course.categories &&
-                      course.categories.map((category) => (
-                        <span className="badge" key={category._id}>
-                          {category.name}
-                        </span>
-                      ))}
-                  </p>
-                </div>
-
-                {/* {JSON.stringify(course.published)} */}
-
-                <div className="d-flex col-sm-2">
-                  {/* total students enrolled */}
-                  <Tooltip title={`${students} Enrolled`}>
-                    <UserSwitchOutlined className="h5 pointer text-success" />
-                  </Tooltip>
-                  {/* edit icon */}
-                  <Tooltip title="Edit">
-                    <EditOutlined
-                      onClick={() =>
-                        router.push(`/instructor/course/edit/${slug}`)
-                      }
-                      className="h5 pointer text-warning"
-                    />
-                  </Tooltip>
-                  {/* course published ? unpublished */}
-                  {course.lessons && course.lessons.length < 5 ? (
-                    <Tooltip title="Min 5 lessons required to publish">
-                      <QuestionOutlined className="h5 pointer text-danger" />
-                    </Tooltip>
-                  ) : course.published ? (
-                    <Tooltip title="Unpublish">
-                      <CloseOutlined
-                        onClick={handleUnpublish}
-                        className="h5 pointer text-danger"
-                      />
-                    </Tooltip>
-                  ) : (
-                    <Tooltip title="Publish">
-                      <CheckOutlined
-                        onClick={handlePublish}
-                        className="h5 pointer text-success"
-                      />
-                    </Tooltip>
-                  )}
-                </div>
+          <div className="d-flex">
+            <div className="me-auto d-flex">
+              <Avatar
+                size={80}
+                src={course.image ? course.image.Location : "/course.png"}
+                className="me-3"
+              />
+              <div>
+                <h5 className="mt-0 text-primary">
+                  {course.name}
+                </h5>
+                <p style={{ marginTop: "-10px" }}>
+                  {course.lessons && course.lessons.length} Lessons
+                </p>
+                <p style={{ marginTop: "-10px", fontSize: "10px" }}>
+                  {course.categories &&
+                    course.categories.map((category) => (
+                      <span className="badge btn btn-secondary me-1" key={category._id}>
+                        {category.name}
+                      </span>
+                    ))}
+                </p>
               </div>
+            </div>
+            {/* {JSON.stringify(course.published)} */}
+            <div className="ms-auto">
+              {/* total students enrolled */}
+              <Tooltip title={`${students} Enrolled`}>
+                <UserSwitchOutlined className="h3 pointer text-success" />
+              </Tooltip>
+              {/* edit icon */}
+              <Tooltip title="Edit">
+                <EditOutlined
+                  onClick={() =>
+                    router.push(`/instructor/course/edit/${slug}`)
+                  }
+                  className="h3 pointer text-warning"
+                />
+              </Tooltip>
+              {/* course published ? unpublished */}
+              {course.lessons && course.lessons.length < 5 ? (
+                <Tooltip title="Min 5 lessons required to publish">
+                  <QuestionOutlined className="h3 pointer text-danger" />
+                </Tooltip>
+              ) : course.published ? (
+                <Tooltip title="Unpublish">
+                  <CloseOutlined
+                    onClick={handleUnpublish}
+                    className="h3 pointer text-danger"
+                  />
+                </Tooltip>
+              ) : (
+                <Tooltip title="Publish">
+                  <CheckOutlined
+                    onClick={handlePublish}
+                    className="h2 pointer text-success"
+                  />
+                </Tooltip>
+              )}
+
             </div>
           </div>
           <hr />

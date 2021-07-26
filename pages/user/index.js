@@ -26,50 +26,46 @@ const UserIndex = () => {
   return (
     <UserRoute>
       <h1 className="jumbotron text-center square p-3 mt-2 left-bottom-radius"> Courses </h1>
-
       {!courses.length && (
         <Link href="/">
           <a className="btn btn-primary float-right mt-2">Browse Courses</a>
         </Link>
       )}
-
       {loading && (
         <SyncOutlined
           spin
           className="d-flex justify-content-center display-1 text-primary p-5"
         />
       )}
-      {courses &&
-        courses.map((course) => (
-          <div className="d-flex pt-2 pb-1" key={course._id}>
-            <Avatar
-              size={80}
-              shape="square"
-              src={course.image ? course.image.Location : "/course.png"}
-              className="me-3"
-            />
-            <div className=" pl-2"></div>
-              <div className="row">
-                <div className="col">
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        {courses &&
+          courses.map((course) => (
+            <div className="d-flex" key={course._id}>
+              <div className="me-auto d-flex">
+                <Avatar
+                  size={80}
+                  shape="square"
+                  src={course.image ? course.image.Location : "/course.png"}
+                  className="me-3"
+                />
+                <div>
                   <Link href={`/user/course/${course.slug}`} className="pointer"  >
-                    <a> <h5 className="mt-2 text-primary">{course.name}</h5> </a>
+                    <a> <h5 className="text-primary">{course.name}</h5> </a>
                   </Link>
                   <p style={{ marginTop: "-10px" }}> {course.lessons.length} Lessons </p>
                   <p className="text-muted" style={{ marginTop: "-15px", fontSize: "12px" }}  >
                     By {course.instructor.name}
                   </p>
                 </div>
-
-                <div className="col-md-3 mt-3 text-center">
-                  <Link href={`/user/course/${course.slug}`} className="pointer">
-                    <a><PlayCircleFilled className="h2 pointer text-primary" /></a>
-                  </Link>
-                </div>
-                
               </div>
-       
-          </div>
-        ))}
+              <div className="ms-auto">
+                <Link href={`/user/course/${course.slug}`} className="pointer">
+                  <a><PlayCircleFilled className="h2 pointer text-primary" /></a>
+                </Link>
+              </div>
+            </div>
+          ))}
+      </div>
     </UserRoute>
   );
 };
