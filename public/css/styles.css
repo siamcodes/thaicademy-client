@@ -1,8 +1,8 @@
 @import 'https://fonts.googleapis.com/css?family=Kanit|Prompt';
 
 body {
-  font-family: 'Kanit','serif', 'sans-serif', 'monospace' ;
-  font-size: 1.1em;
+  font-family: 'serif', 'sans-serif', 'monospace' ;
+  font-size: 1.1em; 
 }
 
 .square {
